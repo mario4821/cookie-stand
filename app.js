@@ -8,14 +8,6 @@ var tableId = document.getElementById('tableId');
 var trEl = document.createElement('tr');
 
 function CookieStore(storeName, hourlyMin, hourlyMax,cookieMin, cookieMax, avgPersale){
-  makeHeaderRow();
-  firstPike.render();
-  seaTac.render();
-  seaCenter.render();
-  capHill.render();
-  alkiWest.render();
-
-
   this.store = storeName;
   this.minHourly = hourlyMin;
   this.maxHourly = hourlyMax;
