@@ -1,3 +1,4 @@
+'use strict';
 //make sales.html file shows stores and number of cookies sold per store. Create separate JS object literal (5 for each locale)(no constructor functions) for each shop location that stores:
 //Track sales from various location
 //Track number of cookies sold per hour per location
@@ -5,53 +6,57 @@
 //maximum number of customers per hour
 //average number of cookies purchased per customer
 //use random number generato
-var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total: '];
 
 var firstPike = {
-    min= 23,
-    max= 65,
-    avg= 6.3,
-    cookies=
-
-    render: function getRandomArbitrary(min, max) {
-        return Math.random() * (max-min) + min);
-    }; console:log(Math.random()),
-
-    //access the ul from index.html
-
-var firstpikeUl = document.getElementById('firstPike');
-
-for(var i=0; i < this.cookies.length; i++) {
-   //1.create list items 
-    var firstpikeLi = document.createElement('li');
-    //2.give them content
-    firstpikeLi.textContent = times[i] + ':' + this.cookies;
-    //3. append the li to the ul
-    firstpikeUl.appendChild(firstpikeLi);
-}
-};
-
-var seaTac = {
-    min=3,
-    max=24,
-    avg=1.2,
-
-    render: function getRandomArbitrary(min, max) {
-        reture Math.random() * (max-min) + min);
-    }; console.long(Math.random()),
-
-    var seaTac = document.getElementById('seaTac');
-    for(var i=0; i< this.minCustomers.length; i++) {
-
-        varseatacLi
+   hourlyMin: 23,
+    hourlyMax: 65,
+    avgPersale: 6.3,
+    randomCustomers: function () {
+        var customers = Math.floor(Math.random() *
+        (this.hourlyMax - this.hourlyMin + 1) +
+        this.hourlyMin);
+        return customers;
+    },
+    cookiesPurchased: function() {
+        var cookies = Math.round(this.avgPersale * this.randomCustomers());
+        return cookies + 'cookies';
+    },
+    cookieSales: function() {
+        var sales = [];
+        var total = 0;
+for(var i = 0; i < times.length; i++) {
+   if(i === (times.length - 1)) {
+       sales[i] = total + 'cookies';
+       console.log(times[i] + sales[i]);
+   } else {
+       sales[i] = this.cookiesPurchased();
+       console.log(times[i] + sales[i]);
+       total += parseInt(sales[i]);
+   }
+}   return sales;
+    },
+render: function() {
+        var ulEl = document.getElementById('firstPike');
+        var salesToday = this.cookieSales();
+    for (var i = 0; i < salesToday.length; i++) {
+        var liEl = document.createElement('li');
+        liEl.textContent = times[i] + salesToday[i];
+        ulEl.appendChild(liEl);
     }
 }
+}; 
+firstPike.render()
 
-var seaCenter =
+//firstPike.cookieSales();
 
-var capHill =
+//v//ar seaTac =
 
-var alkiWest
+//var seaCenter =
+
+//var capHill =
+
+//var alkiWest
 
 
 
