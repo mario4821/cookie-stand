@@ -2,9 +2,15 @@ body {
     background: rgb(173, 91, 91);
 }
 h1 {
-    font-size: 40;
+    font-size: 50px;
+    text-align: center;
 }
 
 h3 {
-    font-size: 40;
+    font-size: 30px;
+}
+
+.listings { 
+    text-align: center;
+    display: inline-block;
 }
