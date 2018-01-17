@@ -2,10 +2,77 @@
 
 var times = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
 
-var firstPike = {
-  hourlyMin: 23,
-  hourlyMax: 65,
-  avgPersale: 6.3,
+function cookieStore(storeName, hourlyMin, hourlyMax, avgPersale){
+  this.store = storeName;
+  this.min = hourlyMin;
+  this.max = hourlyMax;
+  this.avg = avgPersale;
+}
+
+var firstPike = new cookieStore('1st and Pike','23', '65', '6.3');
+console.log(firstPike);
+
+cookieStore.prototype.render = function () {
+  //table row
+  var trEl =document.createElement('tr');
+};
+//holds data
+var tdEl = document.createElement('td');
+
+//gives td content
+tdel.textContent = this.min;
+
+//append td to tr
+trEl.appendChild(tdEl);
+
+//append tr to table
+tdEl = document.createElement('td');
+tdEl.textContent = this.store;
+trEl.appendChild(tdEl);
+
+tdEl = document.createElement('td');
+tdEl.textContent = this.max;
+trEl.appendChild(tdEl);
+
+tdEl = document.createElement('td');
+tdEl.textContent = this.min;
+trEl.appendChild(tdEl);
+
+tdEl = document.createElement('td');
+tdEl.textContent = this.avg;
+trEl.appendChild(tdEl);
+
+cookieStand.appendChild(trEl);
+
+};
+
+
+//table header
+function makeHeaderRow() {
+var trEl = document.createElement('tr');
+var thEl = document.createElement('th');
+thEl.textContent = '6am';
+trEl.appendChild(thEl);
+
+var thEl = document.createElement('th');
+thEl.textContent = '7am';
+trEl.appendChild(thEl);
+
+cookieStand.appendChild(trEl);
+}
+
+makeHeaderRow();
+firstPike.render();
+
+
+
+
+
+
+
+
+
+
   randomCustomers: function () {
     var customers = Math.floor(Math.random() *
         (this.hourlyMax - this.hourlyMin + 1) +
@@ -42,10 +109,9 @@ var firstPike = {
 };
 firstPike.render();
 
-var seaTac = {
-  hourlyMin: 3,
-  hourlyMax: 24,
-  avgPersale: 1.2,
+var seaTac = new cookieStore('3', '24', '1.2');
+console.log(seaTac);
+
   randomCustomers: function () {
     var customers = Math.floor(Math.random() *
           (this.hourlyMax - this.hourlyMin + 1) +
@@ -82,10 +148,9 @@ var seaTac = {
 };
 seaTac.render();
 
-var seaCenter = {
-  hourlyMin: 11,
-  hourlyMax: 38,
-  avgPersale: 3.7,
+var seaCenter = new cookieStore('11', '38', '3.7');
+console.log(seaCenter);
+
   randomCustomers: function () {
     var customers = Math.floor(Math.random() *
             (this.hourlyMax - this.hourlyMin + 1) +
@@ -122,10 +187,9 @@ var seaCenter = {
 };
 seaCenter.render();
 
-var capHill = {
-  hourlyMin: 20,
-  hourlyMax: 38,
-  avgPersale: 2.3,
+var capHill = new cookieStore('20', '38', '2.3');
+console.log(capHill);
+
   randomCustomers: function () {
     var customers = Math.floor(Math.random() *
             (this.hourlyMax - this.hourlyMin + 1) +
@@ -162,10 +226,9 @@ var capHill = {
 };
 capHill.render();
 
-var alkiWest = {
-  hourlyMin: 2,
-  hourlyMax: 16,
-  avgPersale: 4.6,
+var alkiWest = new cookieStore('2', '16', '4.6');
+console.log(alkiWest);
+
   randomCustomers: function () {
     var customers = Math.floor(Math.random() *
             (this.hourlyMax - this.hourlyMin + 1) +
@@ -203,12 +266,4 @@ var alkiWest = {
 alkiWest.render();
 
 
-/*Location        | Min / Cust | Max / Cust | Avg Cookie / Sale
-----------------|------------|------------|-------------------
-1st and Pike      |      23    |     65     |        6.3
-SeaTac Airport  |      3     |     24     |        1.2
-Seattle Center     |      11    |     38     |        3.7
-Capitol Hill |      20    |     38     |        2.3
-Alki            |      2     |     16     |        4.6
-*/
 
