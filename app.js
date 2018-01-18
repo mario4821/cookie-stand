@@ -58,9 +58,9 @@ var seaCenter = new CookieStore('Seattle Center ', 25, 75, 25, 105, 3.7);
 var capHill = new CookieStore('Captiol Hill ', 20, 55, 20, 40, 2.3);
 var alkiWest = new CookieStore('Alki ', 40, 65, 40, 75, 4.6);
 
-makeHeaderRow();
 firstPike.render();
 seaTac.render();
 seaCenter.render();
 capHill.render();
 alkiWest.render();
+makeHeaderRow();

@@ -26,7 +26,15 @@ td {
   background: white;
 }
 
-/* th {
-	background-color: #F7B733;
-	color: #76323F;
+/* 
+form {
+	width: 62%;
+}
+
+input {
+	margin: 15px;
+}
+
+legend, label {
+	color: white;
 } */
