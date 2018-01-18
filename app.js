@@ -2,213 +2,65 @@
 
 var times = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
 
-var firstPike = {
-  hourlyMin: 23,
-  hourlyMax: 65,
-  avgPersale: 6.3,
-  randomCustomers: function () {
-    var customers = Math.floor(Math.random() *
-        (this.hourlyMax - this.hourlyMin + 1) +
-        this.hourlyMin);
-    return customers;
-  },
-  cookiesPurchased: function() {
-    var cookies = Math.round(this.avgPersale * this.randomCustomers());
-    return cookies + ' cookies';
-  },
-  cookieSales: function() {
-    var sales = [];
-    var total = 0;
-    for(var i = 0; i < times.length; i++) {
-      if(i === (times.length - 1)) {
-        sales[i] = total + ' cookies';
-        console.log(times[i] + sales[i]);
-      } else {
-        sales[i] = this.cookiesPurchased();
-        console.log(times[i] + sales[i]);
-        total += parseInt(sales[i]);
-      }
-    } return sales;
-  },
-  render: function() {
-    var ulEl = document.getElementById('firstPike');
-    var salesToday = this.cookieSales();
-    for (var i = 0; i < salesToday.length; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = times[i] + salesToday[i];
-      ulEl.appendChild(liEl);
-    }
+var customerTotal = 0;
+var cookiesTotal = 0;
+
+var cookieStand = document.getElementById('cookieStand');
+
+function CookieStore(storeName, hourlyMin, hourlyMax,cookieMin, cookieMax, avgPersale){
+  this.store = storeName;
+  this.minHourly = hourlyMin;
+  this.maxHourly = hourlyMax;
+  this.minCookie = cookieMin;
+  this.maxCookie = cookieMax;
+  this.avg = avgPersale;
+  this.trackedSales = [];
+}
+
+CookieStore.prototype.render = function () {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.store;
+  trEl.appendChild(tdEl);
+  for(var i = 0; i < times.length; i++) {
+
+    var customers = Math.floor(Math.random() * (this.maxHourly - this.minHourly + 1) + this.minHourly);
+    customerTotal += customers;
+
+    var cookies = Math.round(this.maxCookie - this.minCookie) + this.minCookie;
+    cookiesTotal += cookies;
+
+    var totalHour = customers * cookies;
+    this.trackedSales.push(totalHour);
+
+    var tdEl2 = document.createElement('td');
+    tdEl2.textContent = totalHour;
+    trEl.appendChild(tdEl2);
+
   }
+  cookieStand.appendChild(trEl);
+
 };
+//table header
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  for(var i = 0; i < times.length; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = times[i];
+  }
+  trEl.appendChild(thEl);
+  cookieStand.appendChild(thEl);
+}
+
+var firstPike = new CookieStore('1st and Pike ', 22, 44, 22, 70, 6.3);
+var seaTac = new CookieStore('SeaTac ', 15, 33, 30, 40, 1.2);
+var seaCenter = new CookieStore('Seattle Center ', 25, 75, 25, 105, 3.7);
+var capHill = new CookieStore('Captiol Hill ', 20, 55, 20, 40, 2.3);
+var alkiWest = new CookieStore('Alki ', 40, 65, 40, 75, 4.6);
+
+makeHeaderRow();
 firstPike.render();
-
-var seaTac = {
-  hourlyMin: 3,
-  hourlyMax: 24,
-  avgPersale: 1.2,
-  randomCustomers: function () {
-    var customers = Math.floor(Math.random() *
-          (this.hourlyMax - this.hourlyMin + 1) +
-          this.hourlyMin);
-    return customers;
-  },
-  cookiesPurchased: function() {
-    var cookies = Math.round(this.avgPersale * this.randomCustomers());
-    return cookies + ' cookies';
-  },
-  cookieSales: function() {
-    var sales = [];
-    var total = 0;
-    for(var i = 0; i < times.length; i++) {
-      if(i === (times.length - 1)) {
-        sales[i] = total + ' cookies';
-        console.log(times[i] + sales[i]);
-      } else {
-        sales[i] = this.cookiesPurchased();
-        console.log(times[i] + sales[i]);
-        total += parseInt(sales[i]);
-      }
-    } return sales;
-  },
-  render: function() {
-    var ulEl = document.getElementById('seaTac');
-    var salesToday = this.cookieSales();
-    for (var i = 0; i < salesToday.length; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = times[i] + salesToday[i];
-      ulEl.appendChild(liEl);
-    }
-  }
-};
 seaTac.render();
-
-var seaCenter = {
-  hourlyMin: 11,
-  hourlyMax: 38,
-  avgPersale: 3.7,
-  randomCustomers: function () {
-    var customers = Math.floor(Math.random() *
-            (this.hourlyMax - this.hourlyMin + 1) +
-            this.hourlyMin);
-    return customers;
-  },
-  cookiesPurchased: function() {
-    var cookies = Math.round(this.avgPersale * this.randomCustomers());
-    return cookies + ' cookies';
-  },
-  cookieSales: function() {
-    var sales = [];
-    var total = 0;
-    for(var i = 0; i < times.length; i++) {
-      if(i === (times.length - 1)) {
-        sales[i] = total + ' cookies';
-        console.log(times[i] + sales[i]);
-      } else {
-        sales[i] = this.cookiesPurchased();
-        console.log(times[i] + sales[i]);
-        total += parseInt(sales[i]);
-      }
-    } return sales;
-  },
-  render: function() {
-    var ulEl = document.getElementById('seaCenter');
-    var salesToday = this.cookieSales();
-    for (var i = 0; i < salesToday.length; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = times[i] + salesToday[i];
-      ulEl.appendChild(liEl);
-    }
-  }
-};
 seaCenter.render();
-
-var capHill = {
-  hourlyMin: 20,
-  hourlyMax: 38,
-  avgPersale: 2.3,
-  randomCustomers: function () {
-    var customers = Math.floor(Math.random() *
-            (this.hourlyMax - this.hourlyMin + 1) +
-            this.hourlyMin);
-    return customers;
-  },
-  cookiesPurchased: function() {
-    var cookies = Math.round(this.avgPersale * this.randomCustomers());
-    return cookies + ' cookies';
-  },
-  cookieSales: function() {
-    var sales = [];
-    var total = 0;
-    for(var i = 0; i < times.length; i++) {
-      if(i === (times.length - 1)) {
-        sales[i] = total + ' cookies';
-        console.log(times[i] + sales[i]);
-      } else {
-        sales[i] = this.cookiesPurchased();
-        console.log(times[i] + sales[i]);
-        total += parseInt(sales[i]);
-      }
-    } return sales;
-  },
-  render: function() {
-    var ulEl = document.getElementById('capHill');
-    var salesToday = this.cookieSales();
-    for (var i = 0; i < salesToday.length; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = times[i] + salesToday[i];
-      ulEl.appendChild(liEl);
-    }
-  }
-};
 capHill.render();
-
-var alkiWest = {
-  hourlyMin: 2,
-  hourlyMax: 16,
-  avgPersale: 4.6,
-  randomCustomers: function () {
-    var customers = Math.floor(Math.random() *
-            (this.hourlyMax - this.hourlyMin + 1) +
-            this.hourlyMin);
-    return customers;
-  },
-  cookiesPurchased: function() {
-    var cookies = Math.round(this.avgPersale * this.randomCustomers());
-    return cookies + ' cookies';
-  },
-  cookieSales: function() {
-    var sales = [];
-    var total = 0;
-    for(var i = 0; i < times.length; i++) {
-      if(i === (times.length - 1)) {
-        sales[i] = total + ' cookies';
-        console.log(times[i] + sales[i]);
-      } else {
-        sales[i] = this.cookiesPurchased();
-        console.log(times[i] + sales[i]);
-        total += parseInt(sales[i]);
-      }
-    } return sales;
-  },
-  render: function() {
-    var ulEl = document.getElementById('alkiWest');
-    var salesToday = this.cookieSales();
-    for (var i = 0; i < salesToday.length; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = times[i] + salesToday[i];
-      ulEl.appendChild(liEl);
-    }
-  }
-};
 alkiWest.render();
-
-
-/*Location        | Min / Cust | Max / Cust | Avg Cookie / Sale
-----------------|------------|------------|-------------------
-1st and Pike      |      23    |     65     |        6.3
-SeaTac Airport  |      3     |     24     |        1.2
-Seattle Center     |      11    |     38     |        3.7
-Capitol Hill |      20    |     38     |        2.3
-Alki            |      2     |     16     |        4.6
-*/
-

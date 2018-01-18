@@ -1,3 +1,7 @@
+* {
+	font-family: 'Shrikhand', cursive;
+}
+
 body { 
     background: rgb(173, 91, 91);
 }
@@ -10,7 +14,19 @@ h3 {
     font-size: 30px;
 }
 
-.listings { 
-    text-align: center;
-    display: inline-block;
+table {
+	border: 5px solid rgb(187, 206, 15);
+	empty-cells: hide;
 }
+
+td {
+	padding: 10px;
+	border-radius: 15px;
+  border: 1px solid black;
+  background: white;
+}
+
+/* th {
+	background-color: #F7B733;
+	color: #76323F;
+} */
