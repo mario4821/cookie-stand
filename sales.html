@@ -9,17 +9,28 @@
   </head>
   <body>
       <h1>Pat's Salmon Cookies</h1>
-      <table id="cookieStand"></table>
+      <table id="salesTable "></table>
 
-      <form id="cookie-form">
-        <fieldset>
-          <legend>Add a New Location</legend>
+       
+ <form id="siteForm">
+    <fieldset>
+  <legend>Add a new store here!</legend>
   
-          <label for="storeName">Name:</label>
-          <input name="storeName" type="text" />
-
-          <button id="click-submit">Submit</button>
-        </fieldset>
+  <label for="loc">Location Name</label>
+  <input name="loc" type="text"></input>
+  
+  <label for="min">Minimum Customers Per Hour</label>
+  <input name="min" type="number"></input>
+  
+  <label for="max">Maximum Customers Per Hour</label>
+  <input name="max" type="number"></input>
+  
+  <label for="avg">Average Cookies Per Sale</label>
+  <input name"avg" type="number"></input>
+  
+  <button type="submit">Click to Add!</button>
+  
+      </fieldset>
 
     <script type="text/javascript" src="app.js"></script>
   </body>
