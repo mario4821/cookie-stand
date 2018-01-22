@@ -9,28 +9,39 @@
   </head>
   <body>
       <h1>Pat's Salmon Cookies</h1>
-      <table id="salesTable "></table>
 
-       
+
+<section class = "form">     
  <form id="siteForm">
     <fieldset>
   <legend>Add a new store here!</legend>
   
-  <label for="loc">Location Name</label>
-  <input name="loc" type="text"></input>
+  <label for="storeName">Location Name</label>
+  <input name="storeName" type="text"></input>
   
-  <label for="min">Minimum Customers Per Hour</label>
-  <input name="min" type="number"></input>
+  <label for="hourlyMin">Minimum Customers Per Hour</label>
+  <input name="hourlyMin" type="number"></input>
   
-  <label for="max">Maximum Customers Per Hour</label>
-  <input name="max" type="number"></input>
+  <label for="hourlyMax">Maximum Customers Per Hour</label>
+  <input name="hourlyMax" type="number"></input>
   
-  <label for="avg">Average Cookies Per Sale</label>
-  <input name"avg" type="number"></input>
+  <label for="avgPerSale">Average Cookies Per Sale</label>
+  <input name"avgPerSale" type="number"></input>
   
   <button type="submit">Click to Add!</button>
   
       </fieldset>
+    </form>
+    </section>
+    
+    <section class= "overview">
+      <h1>Sales Info</h1>
+
+    </section>
+<section id = "table">
+  <table id ="salesTable"> </table>
+</section>
+
 
     <script type="text/javascript" src="app.js"></script>
   </body>
