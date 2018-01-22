@@ -1,40 +1,100 @@
 * {
 	font-family: 'Shrikhand', cursive;
 }
+#aboutpat {
+	font-size: 25px;		
+	color:rgb(218, 170, 107);
+	text-shadow: 2px 2px 8px rgb(12, 8, 8);
+}
+#ingredients {
+	font-size: 25px;		
+	color:rgb(90, 172, 94);
+	text-shadow: 2px 2px 8px rgb(12, 8, 8);
+}
+
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	padding: 5px;
+	border: 2px rgb(10, 10, 10);
+}	
 
 body { 
-    background: rgb(173, 91, 91);
+	background: rgb(173, 91, 91);
 }
 h1 {
     font-size: 50px;
-    text-align: center;
+	text-align: center;
+	color: rgb(32, 95, 146);
+	text-shadow: 2px 2px 8px rgb(12, 8, 8);
+}
+h2 {
+	text-align: center;
+	text-decoration: underline;
 }
 
-h3 {
-    font-size: 30px;
+#locations {
+	display: block;
+	color: yellow;
+	text-align: left;
+	text-shadow: 3px 3px 10px rgb(12, 8, 8);
+	
 }
 
+button {
+		background-color: rgb(70, 135, 155);
+		
+}
 table {
-	border: 5px solid rgb(187, 206, 15);
 	empty-cells: hide;
+	max-width: 100%;
+	border-collapse: separate;
 }
 
-td {
+td, tr {
+	padding: 15px;
+	margin: 10px;
+  	border: .1px solid rgb(23, 68, 33);
+}
+
+tr {
+	background:rgb(218, 170, 107);
+}
+
+table tr: :nth-child(even) {
+	background: bisque;
+}
+
+tr td: :first-child{
+	background: white;
+	color: red; 
+} 
+
+th {
+	background-color: rgb(202, 199, 14);
+	color: rgb(28, 66, 33);
+	border: 1px solid;
 	padding: 10px;
-	border-radius: 15px;
-  border: 1px solid black;
-  background: white;
+	margin: 5px;
 }
 
-/* 
-form {
-	width: 62%;
+.pic1 {
+	position: relative;
+	display: inline-block;
+	padding: 10px;
 }
 
-input {
-	margin: 15px;
+.pic2 {
+	position: relative;
+	display: inline-block;
+	padding: 10px;
 }
 
-legend, label {
-	color: white;
-} */
+.pic3 {
+	position: relative;
+	display: inline-block;
+	padding: 10px;
+}
