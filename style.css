@@ -80,22 +80,12 @@ th {
 	padding: 10px;
 	margin: 5px;
 }
-
-.pic1 {
-	position: relative;
-	display: inline-block;
+div.imgs{
+	height: auto;
+	width: auto;
 	float: left;
-	padding: 10px;
 }
-
-.pic2 {
-	position: relative;
-	display: inline-block;
-	padding: 10px;
-}
-
-.pic3 {
-	position: relative;
-	display: inline-block;
-	padding: 10px;
+div.imgs img {
+	display: inline;
+	padding: 5px;
 }
